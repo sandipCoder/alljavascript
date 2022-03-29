@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <h1>
+            Genrators
+        </h1>
+    </div>
+
+    <script>
+        //Generators
+        // Regular functions return only one, single value (or nothing).
+
+        // Generators can return (“yield”) multiple values, one after another, on-demand. They work great with iterables, allowing to create data streams with ease.
+
+
+        function* genratorFunction(){
+            yield 1;
+            yield 2;
+            yield 3;
+            yield 4;
+            return 5
+        }
+
+        const genFx =  genratorFunction()
+        console.log(genFx.next())
+        console.log(genFx.next())
+        // console.log(genFx.next())
+        // console.log(genFx.next())
+        // console.log(genFx.next())//{value:undefined,done:true}
+        console.log(genFx.next())
+        // console.log(genFx.next())
+        // console.log(genFx.next())   
+
+        for(let i of genFx){
+            console.log(i)
+        }
+
+
+    </script>
+</body>
+
+</html>

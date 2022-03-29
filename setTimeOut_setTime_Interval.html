@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>setTimeout and SetTimeInterval</h1>
+    </div>
+
+    <script>
+      //setTimeOut :The setTimeout() method executes a block of code after the specified time. The method executes the code only once.
+      //syntax = setTimeout(function, milliseconds);
+
+      function hello() {
+        console.log("hello");
+      }
+
+      setTimeout(hello, 3000);
+      console.log("This message first display...");
+
+      // program to display time every 3 seconds
+      function showTime() {
+        // return new date and time
+        let dateTime = new Date();
+
+        // returns the current local time
+        let time = dateTime.toLocaleTimeString();
+
+        console.log(time);
+
+        // display the time after 3 seconds
+        // setTimeout(showTime, 3000);
+      }
+
+      // calling the function
+      showTime();
+
+      //JavaScript clearTimeout()
+      // As you have seen in the above example, the program executes a block of code after the specified time interval. If you want to stop this function call, you can use the clearTimeout() method.
+
+      // program to stop the setTimeout() method
+
+      let count = 0;
+
+      // function creation
+      function increaseCount() {
+        // increasing the count by 1
+        count += 1;
+        console.log(count);
+        //count++
+      }
+      let clTime = setTimeout(increaseCount, 3000);
+
+      //  clearTimeout(clTime);
+      console.log("setTimeout is stopped.");
+
+      //JavaScript setInterval()
+      //The setInterval() method repeats a block of code at every given timing event.
+
+      //setInterval(function, milliseconds, parameter1, ....paramenterN);
+
+      // program to display a name
+      function greet(name, lastName) {
+        console.log("Hello" + " " + name + " " + lastName);
+      }
+
+      // passing argument to setInterval
+     // setInterval(greet, 1000, "John", "Doe");
+    </script>
+  </body>
+</html>

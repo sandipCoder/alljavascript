@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>spread oprators</h1>
+    </div>
+
+    <script>
+      //spread oprator
+      //Spread operator allows an iterable to expand in places where 0+ arguments are expected. It is mostly used in the variable array where there is more than 1 values are expected. It allows us the privilege to obtain a list of parameters from an array. Syntax of Spread operator is same as Rest parameter but it works completely opposite of it.
+
+      //var variablename1 = [...value];
+
+      // spread operator doing the concat job
+      let arr = [1, 2, 3];
+      let arr2 = [4, 5];
+
+      arr = [...arr, ...arr2];
+      console.log(arr); // [ 1, 2, 3, 4, 5 ]
+
+
+      ///clone array
+
+      let arranew = [1,2,3,4,5,6]
+      let arrnew2 =  [7,8,9]
+
+      let arrbe = [...arranew] 
+       arrbe.push(10)
+       
+      console.log(arrbe, arranew)
+
+      let getArr = [...arranew,...arrnew2,]
+
+      console.log(getArr)
+
+
+
+
+     
+    </script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>REST API</div>
+    <button id="loaddata">Load data</button>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      //REST API (Representational state transfer) is an API that uses HTTP requests for communication with web services and must comply with certain constraints. Full constraints list can be viewed at the link. Here are some of them:
+
+      //   Client-server architecture – the client is responsible for the user interface, and the server is responsible for the backend and data storage. Client and server are independent of each other, and each of them can be replaced separately.
+      //   Stateless – no data from the client is stored on the server-side. The session state is stored on the client-side.
+      //   Cacheable – clients can cache server responses to improve performance.
+
+      // CRUD is a programming concept denoting four basic actions (create, read, update, and delete) that can be performed on a data source. In a REST API, these actions correspond to Types of Requests or Request Methods:
+
+      // POST: Create action. Adds new data to the server. Using this type of request, you can, for example, add a new ticket to your inventory.
+
+      // GET: Read action. Retrieves information (like a list of items). This is the most common type of request. Using it, we can get the data we are interested in from those that the API is ready to share.
+
+      // PUT: Update action. Changes existing information. For example, using this type of request, it would be possible to change the color or value of an existing product.
+
+      // DELETE: Delete action. Deletes existing information.
+
+      //PATCH:
+
+      //using Methods to interact with JavaScript REST API
+      // 1.XMLHttpRequest
+      // 2.Fetch
+      // 3.Axios
+
+      // 1.Ajax :Asyncronus javascript and xml
+
+      //three type of data get from server
+      //1 text
+      //2 xml
+      //3 json
+
+      //5 steps to ready state
+      //0 : request not initalize
+      //1 : server connection established
+      //2 : request Receive
+      //3 : processing request
+      //4 : request finish and respose is ready
+
+      //status =  //responseText or responseXML
+      //200 = ok  //server send request successfull
+      //403 : fobidden //server not responding
+      //400: bad request
+      //500: 500 Internal Server Error
+      //404 : "Not found" // dont recieve file to server
+
+      // 200	OK - Successfully logged in (see note).
+      // 400	Bad request - Problem with body or query parameters.
+      // 401	Unauthorized - Bad Authentication (invalid site or agent).
+      // 500	Internal server error.
+
+      //1.XMLHttpRequest
+      //syntax
+      //   const xhttp = new XMLHttpRequest();
+      //   xhttp.onload = function () {
+      //     document.getElementById("demo").innerHTML = this.responseText;
+      //   };
+      //   xhttp.open("GET", "ajax_info.txt", true);
+      //   xhttp.send();
+
+      let xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          data = JSON.parse(this.responseText);
+          data.forEach((element) => {
+            console.log(element.title);
+          });
+        }
+      };
+
+      xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+      xhttp.send();
+
+      //fetch Method use in javascritp = POST, GET, PUT, DELETE
+
+      //fetch : return promise
+      //syntax
+
+      // fetch('url')
+      //.then(return promise).then(function(){ return data.JSON()/text })
+
+      fetch("https://jsonplaceholder.typicode.com/posts")
+        .then((response) => {
+          return response.json();
+        })
+        .then((result) => {
+          console.log("fetch", result);
+        });
+
+      //async function
+
+      async function dataFetching() {
+        let respose = await fetch("https://jsonplaceholder.typicode.com/posts");
+        let result = await respose.json();
+        console.log("fetch async await", result);
+      }
+      dataFetching();
+
+      //Axios
+      axios
+        .get("https://jsonplaceholder.typicode.com/posts")
+        .then((res) => console.log("axios", res.data));
+
+      //async function
+      async function dataFetchingAxios() {
+        const dataAxios = await axios.get(
+          "https://jsonplaceholder.typicode.com/posts"
+        );
+        const response = dataAxios.data;
+        console.log("axios with async", response);
+      }
+      dataFetchingAxios();
+    </script>
+  </body>
+</html>

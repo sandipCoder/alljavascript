@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <h1>
+            First Class function
+        </h1>
+    </div>
+    
+    <script>
+
+        //First-Class Function: A programming language is said to have First-class functions if functions in that language are treated like other variables. So the functions can be assigned to any other variable or passed as an argument or can be returned by another function.
+
+        // Can be stored as a value in a variable
+        // Can be returned by another function
+        // Can be passed as a function's argument
+        // Can be stored in an array, stack, or queue
+        // Can have its own properties and methods.
+
+        const data = function dtaFuncton(){
+            console.log("hello")
+        }
+
+        data();
+
+
+        //
+
+        let sum = (a,b)=>{
+            console.log(a+b)
+        }
+
+       const cal = (opration, a ,b)=>{
+           return opration(a,b)
+       }
+
+       cal(sum, 5, 6)
+ 
+   ///call back
+      function message(){
+          console.log("callback func")
+      }
+
+       let abc = document.getElementById('id')
+       ///higher order
+       abc.addEventListener('click',message)
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Clouser</h1>
+    </div>
+
+    <script>
+      /*clouser: A closure gives you access to an outer function's scope from an inner function.
+                   - In JavaScript, closures are created every time a function is created, at function creation time.
+                   - clouser means inner function access outer function scope.
+                   - Clouser is an inner function that has access outer function scope / veriables
+
+                    closur we have 3 scopes
+                    1)local  scope (own scope)
+                    2)outer function scope
+                    3)Global  Scope
+                    */
+
+      function outerScope() {
+        let out = "let have a outer scope..";
+        console.log(out);
+        function innerScope() {
+          let inn = "lets have a inner scope..";
+          console.log(inn, out);
+          //whenver you use outer verable in inner function that time clouser is work
+        }
+        innerScope();
+        //console.log(inn)
+      }
+      outerScope();
+
+      //another one
+      //if we are use var that time veriable access the global scope
+      //if use are use let access the block scope
+
+      //   for(var i =0; i<5; i++ ){
+      //       function innerClouser(){
+      //           console.log(i) //ans 5,5,5,5,5 //value is hoisted access the global scope
+      //       }
+      //       setTimeout(innerClouser,100)
+      //   }
+
+      for (let i = 0; i < 5; i++) {
+        const innerClouser =()=> {
+          //  debugger;
+          console.log(i); //ans 0,1,2,3,4 // access the block scope
+        }
+        setTimeout(innerClouser, 100);
+      }
+    </script>
+  </body>
+</html>

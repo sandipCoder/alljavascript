@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Opps Concepts</h1>
+    </div>
+
+    <script>
+      //class
+      //inheritance
+      //constructor
+      //object
+      //prototype
+      //static method
+      //super use
+
+      //class :A class is a blueprint for the object. You can create an object from the class.
+
+      // You can think of the class as a sketch (prototype) of a house. It contains all the details about the floors, doors, windows, etc. Based on these descriptions, you build the house. House is the object.
+
+      // Since many houses can be made from the same description, we can create many objects from a class.
+
+      // constructor function
+      //   function Person() {
+      //     (this.name = "John"), (this.age = 23);
+      //   }
+
+      //   // create an object
+      //   const person1 = new Person();
+
+      // creating a class
+    //   class Person {
+    //     constructor(name) {
+    //       this.name = name;
+    //     }
+    //   }
+    //   const person2 = new Person("ram");
+    //   console.log(person2.name);
+
+      //  //class
+      //   class students {
+      //     //constructor
+      //     constructor(name,age){
+      //         this.name = name
+      //         this.age = age
+      //         console.log("call constructor...")
+      //     }
+      //     //proto method
+      //     getfunction() {
+      //       console.log(this.name + " "+ this.age);
+      //     }
+
+      //     //static
+      //     static staticFunc(){
+      //         console.log("static function called")
+      //     }
+      //   }
+
+      //   let st = new students("Ramesh",26);
+      //   let st1 = new students("Ganesh",36);
+      //   let st2 = new students("Sagar",30);
+      //   st.getfunction();
+      //   st1.getfunction();
+      //   st2.getfunction();
+      //   students.staticFunc()
+
+    //   class students {
+    //     constructor(name, age, std) {
+    //       this.name = name;
+    //       this.age = age;
+    //       this.std = std;
+    //       console.log("constructor called");
+    //     }
+
+    //     getInfo() {
+    //       console.log(this.name + " " + this.age + " " + this.std);
+    //     }
+    //   }
+
+    //   let st = new students("Sandip", 16, "10th");
+    //   st.getInfo();
+
+     
+     
+     
+      //inheritance
+
+      class students1 {
+        constructor(name, age, std) {
+          this.name = name;
+          this.age = age;
+          this.std = std;
+          console.log("constructor called");
+        }
+
+        getInfodata() {
+          console.log("Base class :",this.name + " " + this.age + " " + this.std);
+        }
+      }
+
+      class teacher extends students1 {
+        constructor(name, age, std,teacher) {
+            super(name, age, std)
+            this.teacher = teacher
+          
+            console.log("constructor called parent class")
+
+        }
+        
+        getinfoData2(){
+            super.getInfodata() 
+            console.log("Teacher Class:",this.teacher)
+        }
+      }
+
+      class master extends teacher{
+          constructor(name, age, std,teacher,maters){
+             
+              super(name, age, std,teacher)
+              this.maters = maters
+              console.log("master constructor called")
+          }
+
+          getPrincipleDetail(){
+              super.getinfoData2()
+              console.log("master class :",this.maters)
+          }
+
+      }
+
+      let st1 = new master("Sandip", 16, "10th",'Ganesh sir',"Pri. Vnit Mishra");
+      st1.getPrincipleDetail();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>diffrence Betwwen Slice and Splice subtring</h1>
+    </div>
+
+    <script>
+      //string Methods
+
+      // charAt()
+      //charAt(x) //This function will return the character at the x position within the string.
+      var myString = "jQuery FTW!!!";
+      console.log(myString.charAt(7));
+      //output: F
+
+      // charCodeAt() //This function will return the unicode value of the character at position ‘x’ within the string.
+      //charAt(position)
+      var message = "jquery4u";
+      //alerts "q"
+      alert(message.charAt(1));
+
+      // concat() //This function combines one or more strings(argv1,v2 etc) into existing one.
+
+      //concat(v1, v2,..)
+      var str1s = "Sam";
+      var final = str1s.concat(" is a", " hopeless romantic.");
+      //alerts "Sam is a hopeless romantic."
+      alert(final);
+
+      // fromCharCode()
+
+      // indexOf(substr, [start])// Searches and (if found) returns the index number of the searched character or substring within the string. If not found, -1 is returned. “Start” is an optional argument specifying the position within string to begin the search. Default is 0.
+      //indexOf(char/substring)
+      var sentence = "Hi, my name is Sam!";
+      if (sentence.indexOf("Sam") != -1) alert("Sam is in there!");
+
+
+      // 6.lastIndexOf(substr, [start]) //Searches and (if found) returns the index number of the searched character or substring within the string. Searches the string from end to the beginning. If not found, -1 is returned. “Start” is an optional argument specifying the position within string to begin the search. Default is string.length-
+
+      //lastIndexOf(substr, [start])
+      var myString = "javascript rox";
+      console.log(myString.lastIndexOf("r"));
+      //output: 11
+
+      // match()
+
+      //match(regexp) //select integers only
+      var intRegex = /[0-9 -()+]+$/;
+
+      var myNumber = "999";
+      var myInt = myNumber.match(intRegex);
+      console.log(myInt);
+      //output: 999
+
+      var myString = "999 JS Coders";
+      var myInt = myString.match(intRegex);
+      console.log(myInt);
+      //output: null
+
+      // replace()//replace(regexp/substr, replacetext) Searches and replaces the regular expression (or sub string) portion (match) with the replaced text instead.
+
+      //replace(substr, replacetext)
+      var myString = "999 JavaScript Coders";
+      console.log(myString.replace(/JavaScript/i, "jQuery"));
+      //output: 999 jQuery Coders
+
+      //replace(regexp, replacetext)
+      var myString = "999 JavaScript Coders";
+      console.log(myString.replace(new RegExp("999", "gi"), "The"));
+      //output: The JavaScript Coders
+
+      // search()
+
+      // slice()slice(start, [end])This function returns a substring of the string based on the “start” and “end” index arguments, NOT including the “end” index itself. “End” is optional, and if none is specified, the slice includes all characters from “start” to end of the string.
+      //slice(start, end)
+      var text = "excellent";
+      text.slice(0, 4); //returns "exce"
+      text.slice(2, 4); //returns "ce"
+
+      // split(delimiter, [limit])=This will split a string into many according to the specified delimiter, and returns an array containing each element. The optional “limit” is an integer that lets you specify the maximum number of elements to return.
+      //split(delimiter)
+      var message = "Welcome to jQuery4u";
+      //word[0] contains "We"
+      //word[1] contains "lcome to jQuery4u"
+      var word = message.split("l");
+      console.log("word",word)
+      //op:['We', 'come to jQuery4u']
+
+      // substr(start, [length])This function returns the characters in a string beginning at “start” and through the specified number of characters, “length”. “Length” is optional, and if omitted, up to the end of the string is assumed.
+
+      //substring(from, to)
+      var text = "excellent";
+      text.substring(0, 4); //returns "exce"
+      text.substring(2, 4); //returns "ce"
+
+      // substring(from, [to])=>It returns the characters in a string between “from” and “to” indexes, NOT including “to” itself. “To” is optional, and if omitted, up to the end of the string is assumed.
+
+      //substring(from, [to])
+      var myString = "javascript rox";
+      myString = myString.substring(0, 10);
+      console.log(myString);
+      //output: javascript
+
+      // toLowerCase()This will return the string with all of its characters converted to lowercase.
+
+      //toLowerCase()
+      var myString = "JAVASCRIPT ROX";
+      myString = myString.toLowerCase();
+      console.log(myString);
+      //output: javascript rox
+
+      // toUpperCase()This will return the string with all of its characters converted to uppercase.
+      //toUpperCase()
+      var myString = "javascript rox";
+      myString = myString.toUpperCase();
+      console.log(myString);
+      //output: JAVASCRIPT ROX
+
+      // valueOf()It is used to return the primitive value of a String object.
+      //valueOf()
+      var mystr = "Hello World!";
+      var res = mystr.valueOf();
+      //output: Hello World!
+
+      //includes()It is used to check whether a string contains the specified string or characters
+      //includes()
+      var mystring = "Hello, welcome to edureka";
+      var n = mystring.includes("edureka");
+      //output: True
+
+      //repeat()
+      var string = "Welcome to Edureka";
+      string.repeat(2);
+      //output: Welcome to Edureka Welcome to Edureka
+
+      //trim()This function removes whitespace from both ends of a string.
+      var str = "     Hello Edureka!     ";
+      alert(str.trim());
+
+      //String methods
+
+      
+    </script>
+  </body>
+</html>

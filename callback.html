@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Call back Function</h1>
+      <div id="demo"></div>
+      <div id="demo2"></div>
+      <div id="demo3"></div>
+    </div>
+
+    <script>
+      /*callback function : A callback is a function passed as an argument to another function 
+                              This technique allows a function to call another function
+                              A callback function can run after another function has finished */
+
+      function dispalyMessage(callback) {
+        document.getElementById("demo").innerHTML = callback;
+      }
+
+      function hello() {
+        dispalyMessage("Hello");
+      }
+
+      function bye() {
+        setTimeout(() => {
+          dispalyMessage("Bye");
+        }, 2000);
+      }
+
+      hello();
+      bye();
+
+      ///
+      (function (v) {
+        for (var i = 0; i < v; i++) {
+          setTimeout(() => {
+            //call back function
+            console.log(i);
+          }, 1000);
+        }
+        // console.log(i)
+      })(10);
+
+      ///call back
+
+      function callback1() {
+        console.log("callback 1");
+      }
+
+      function callback2() {
+        console.log("callback 2");
+      }
+
+      setTimeout(() => {
+        callback1();
+      }, 2000);
+      callback2();
+    </script>
+  </body>
+</html>

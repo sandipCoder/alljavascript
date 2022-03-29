@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>rest and spread</div>
+    <script>
+    
+
+      // Rest parameter: collects all remaining elements into an array.
+      // Spread operator: allows iterables ( arrays / objects / strings) to be expanded into single arguments/elements.
+
+      //rest parameter/oprator : collects all remaining elements into an array.
+         
+      function add(a, ...b) {
+        let result = 0;
+        for (let i of b) {
+          result += i;
+        }
+        return result + a ;
+      }
+      console.log(add(1, 2, 6));
+
+
+
+        //spred oprator : spread array into nomal value
+
+        let spArr= [4,5,6,8,9,5,9]
+        let sparr2 = [54,3,9,3, ...spArr]
+
+        console.log(...sparr2)
+      
+    </script>
+  </body>
+</html>

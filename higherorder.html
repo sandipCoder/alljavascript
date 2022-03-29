@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Higher Order function in JavaScript</h1>
+    </div>
+
+    <script>
+      //Higher order Function : A Higher-Order function is a function that receives a function as an argument or returns the function as output.
+
+      //map
+      //filter
+      //reduce
+      //foreach
+      //sort
+
+      let data = [
+        { name: "sandip", age: 32, sal: 60000 },
+        { name: "Rohan", age: 25, sal: 20000 },
+        { name: "Shital", age: 30, sal: 80000 },
+        { name: "Ganesh", age: 35, sal: 90000 },
+      ];
+
+      let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+      //for
+
+      for (let i in arr) {
+        //console.log(arr[i])
+      }
+
+      for (let i of arr) {
+        // console.log(i)
+      }
+
+      //foreach : arr.forEach((ele,index)=>{ele}) // .forEach(), is used to execute the same code on every element in an array but does not change the array and it returns undefined.
+
+      arr.forEach((ele, index) => {
+        console.log(ele);
+      });
+
+      data.forEach(ele=> console.log(ele))
+
+
+
+      //filter : .filter() checks every element in an array to see if it meets a certain criteria and returns a new array with the elements that return truthy for the criteria.
+      //check condition in existing array and return new array
+
+     let newarr = arr.filter(function(ele,index){
+         return ele>5
+      })
+      console.log(newarr)
+
+
+      //map:.map() executes the same code on every element in an array and returns a new array with the updated elements.
+
+    let mapnew  = arr.map(function(ele,index){
+       return ele*2
+    })
+    console.log(mapnew)
+
+    //reduce: The reduce() method reduces an array of values down to just one value. pass intital value also
+
+    let redarr =  arr.reduce(function(preval,curval){
+         return preval+=curval
+     },1)
+     console.log(redarr)
+
+     //sort:The sort() method sorts the elements of an array in place and returns the sorted array. 
+
+      let sortedData = data.sort((a,b)=>{
+            if(a.age > b.age){
+                return 1
+            }else{
+                return -1
+            }
+      })
+      console.log(sortedData)
+
+      let sortedDatahiger = data.sort((a,b)=>{
+            if(a.age < b.age){
+                return 1
+            }else{
+                return -1
+            }
+      })
+      console.log(sortedDatahiger)
+    </script>
+  </body>
+</html>

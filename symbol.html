@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Symbol</h1>
+    </div>
+    <script>
+      //JavaScript Symbol
+      //The JavaScript ES6 introduced a new primitive data type called Symbol. Symbols are immutable (cannot be changed) and are unique. For example,
+
+      // two symbols with the same description
+
+      const value1 = Symbol("hello");
+      const value2 = Symbol("hello");
+
+      console.log(value1 === value2); // false
+
+      // creating symbol
+      const y = Symbol();
+
+      typeof y; // symbol
+
+      const z = Symbol("hey");
+      console.log(z.description); // hey
+
+     
+     
+     //use of symbol in object
+
+      let id = Symbol("id");
+
+      let person = {
+        name: "Jack",
+        // adding symbol as a key
+        [id]: 123, // not "id": 123
+      };
+
+      console.log(person); // {name: "Jack", Symbol(id): 123}
+    </script>
+  </body>
+</html>

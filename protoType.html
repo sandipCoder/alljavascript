@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Prototype In JavaScript</h1>
+    </div>
+
+    <script>
+      //prototype :JavaScript Prototype in JavaScript, every function and object has a property named prototype by default.
+      //In JavaScript, a prototype can be used to add properties and methods to a constructor function. And objects inherit properties and methods from a prototype.
+
+      //constructor function
+
+      function person() {
+        this.name = "john";
+        this.age = 30;
+      }
+      //create objects
+      let person1 = new person();
+      let person2 = new person();
+
+      // checking the prototype value
+      console.log("protp",person.prototype); // { ... }
+
+      person.prototype.lname = "Choraghe";
+      person.prototype.sal = 25000;
+
+      console.log(person.prototype); // { ... }
+
+      console.log(person1.lname);
+
+      //prototype using function
+      function car(name, model) {
+        this.name = name;
+        this.model = model;
+      }
+
+      car.prototype.getDetails = function () {
+        console.log(`car name = ${this.name} and model is = ${this.model}`);
+      };
+
+      let car1 = new car("Bmw", 2021);
+      let car2 = new car("Wolksvagon", 2022);
+
+      car1.getDetails();
+      car2.getDetails();
+
+      ///
+
+      function students() {
+        this.name = "Ram",
+         this.age = 25;
+      }
+
+      students.prototype.name = "Ramesh";
+      students.prototype.gender = "male";
+
+      let st = new students();
+      console.log(st.name); //cannot overrite
+
+      console.log(st.__proto__);
+
+      //object declaration type
+
+      //   let objfirst = new Object({
+      //       name : "Sandip"
+      //   })
+
+      //   let obj2 = new Object()
+
+      //   let obj = {
+      //       name:"Ram"
+      //   }
+
+      //prototype inheritance
+
+      // let probj1 = {
+      //   name: "sandip",
+      //   roll: 5,
+      //   getName:function(){
+      //       return this.name
+      //   },
+      //   getRoll :function(){
+      //       return this.roll
+      //   }
+      // };
+
+      // let probj2 = {
+      //   roll: 9,
+      //   __proto__: probj1,
+      // };
+
+      // let probj3 = {
+      //   age: 32,
+      //   __proto__: probj2,
+      // };
+
+      // console.log(probj3.getName());
+      // console.log(probj3.getRoll());
+
+
+      // let arr = ["arrr"]
+      // console.log(arr.__proto__)
+
+
+      let proj1 ={
+           name:"Ramesh",
+           roll:11,
+           getname:function(){
+             return this.name
+           },
+           getrollno : function(){
+             return this.roll
+           }
+      }
+
+      let proj2 ={
+          roll:12,
+        __proto__ : proj1
+      }
+
+      console.log(proj2.getname())
+      console.log(proj2.getrollno())
+
+
+
+      function students(name){
+        this.name = name;
+      }
+
+      students.prototype.age = 25
+      students.prototype.getFullinfo = function(){
+        console.log("proto",__proto__)
+        console.log(this.name + " "+ this.age)
+      }
+
+      let std = new students('Ramesh',25)
+      std.getFullinfo()
+
+    </script>
+  </body>
+</html>

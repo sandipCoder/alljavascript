@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>default parameter</h1>
+    </div>
+    <script>
+      //This allows us to give default values to function parameters
+
+      function sum(x = 3, y = 5) {
+        // return sum
+        return x + y;
+      }
+
+      console.log(sum(5, 15)); // 20
+      console.log(sum(7)); // 12
+      console.log(sum()); // 8
+
+    //   function add(x = y, y = 5) {
+    //     console.log(x, y); //error y cannot access befor initilation
+    //   }
+
+    //   add();
+
+      // using a function in default value expression
+
+      const sum2 = () => 15;
+
+      const calculate = function (x, y = x * sum2()) {
+        return x + y;
+      };
+
+      const result = calculate(10);
+      console.log(result); // 160
+    </script>
+  </body>
+</html>

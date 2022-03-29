@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Async await Functions</h1>
+      <div>
+        <ul id="data">
+          <!-- <li></li> -->
+        </ul>
+      </div>
+    </div>
+    <script>
+      //We use the async keyword with a function to represent that the function is an asynchronous function. The async function returns a promise.
+
+      //The await keyword is used inside the async function to wait for the asynchronous operation.
+
+      // async function nameFunction(parameters, parameters, parameters) {
+      //     let result = await promise;
+      // }
+
+      //
+
+      async function myfunc() {
+        console.log("async function called");
+        return Promise.resolve(1);
+      }
+      myfunc();
+
+      async function f() {
+        console.log("Async function.");
+        return Promise.resolve(1);
+      }
+
+      f().then(function (result) {
+        console.log(result);
+      });
+
+      // a promise
+      let promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("Promise is resolved");
+        }, 3000);
+      });
+
+      async function myfun() {
+        console.log("Hello");
+        let result = await promise;
+
+        console.log(result);
+
+        console.log("Bye");
+      }
+
+      myfun();
+
+      ///
+      const myfunData = async () => {
+        console.log("two");
+        await console.log("Three");
+        console.log("Four");
+      };
+      console.log("one");
+      myfunData();
+      console.log("five");
+
+      ///async Await json api
+
+      const dataFetch = async () => {
+        const data = await fetch("https://jsonplaceholder.typicode.com/posts/");
+        const result = await data.json();
+        console.log(result);
+        let display = document.getElementById("data");
+        display.innerHTML = "";
+        result.forEach((element) => {
+          display.innerHTML += `<li>${element.body}</li>`;
+        });
+      };
+
+      dataFetch();
+    </script>
+  </body>
+</html>

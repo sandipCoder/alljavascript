@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Arrow Function</h1>
+    </div>
+    <script>
+      //Arrow function :Arrow function is one of the features introduced in the ES6 version of JavaScript. It allows you to create functions in a cleaner way compared to regular functions. For example,
+
+      //Inside a regular function, this keyword refers to the function where it is called.
+
+      //However, this is not associated with arrow functions. Arrow function does not have its own this. So whenever you call this, it refers to its parent scope. For example,
+
+      //   function Person() {
+      //     (this.name = "Jack"),
+      //       (this.age = 25),
+      //       (this.sayName = function () {
+      //         // this is accessible
+      //         console.log(this.age);
+      //         console.log(this);
+
+      //         function innerFunc(age) {
+      //           // this refers to the global object
+      //           console.log(this.age); //undefind //inner function dont have this access
+      //           console.log(this); //refer to the window object
+      //         }
+      //         innerFunc(20);
+      //       });
+      //   }
+
+      //   let x = new Person();
+      //   x.sayName();
+
+      function Person() {
+        this.name = "Jack";
+        this.age = 25;
+
+        this.sayName= ()=> {
+          console.log(this.age);
+
+          let innerFunc = () => {
+            console.log(this.age);
+          };
+
+          innerFunc();
+        };
+      }
+
+      const x = new Person();
+      x.sayName();
+
+      //another one
+      let dataobj = {
+        name: "Raje",
+        lname: "maharaja",
+
+        datafn: () => {
+          console.log(this);
+        },
+      };
+
+      dataobj.datafn();
+    </script>
+  </body>
+</html>

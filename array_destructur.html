@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Array destructure</h1>
+    </div>
+
+    <script>
+      //Destructuring means to break down a complex structure into simpler parts.
+
+      let arr = ["hello", "World"];
+      let [first, second] = arr;
+      console.log(first, second);
+
+      var colors = [
+        "Violet",
+        "Indigo",
+        "Blue",
+        "Green",
+        "Yellow",
+        "Orange",
+        "Red",
+      ];
+
+      // destructuring assignment
+      var [color1, color2, color3] = colors;
+
+      console.log(color1); // Violet
+      console.log(color2); // Indigo
+      console.log(color3); // Blue
+
+      var colorsnew = [
+        "Violet",
+        "Indigo",
+        "Blue",
+        "Green",
+        "Yellow",
+        "Orange",
+        "Red",
+      ];
+
+      // destructuring assignment
+      var [color11, , color33, , color55] = colorsnew; //Leave space for unpick elements
+      console.log(color11); // Violet
+      console.log(color33); // Blue
+      console.log(color55); // Yellow
+    </script>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>hoisted</h1>
+    </div>
+
+    <script>
+      //Hoisting : In JavaScript, Hoisting is the default behavior of moving all the declarations at the top of the scope before code execution.
+      //Basically, it gives us an advantage that no matter where functions and variables are declared, they are moved to the top of their scope regardless of whether their scope is global or local.
+
+      //Hoisting is javascript default behaviour of moving declaration to the top
+      //in javascript , a variable can be declare after it has beeb used
+
+      var a = 10;
+      a = 100;
+      console.log(a);
+      console.log(b);
+      var b = 100;
+
+      /*hoisting working like this
+        var a;
+        var b,
+        
+        a = 10;
+        a = 100
+        console.log(a); ans  a = 100
+        console.log(b); ans  b = undefined
+
+      */
+
+      //
+      b = 20;
+      console.log(b); //hoisted to b = 20
+      var b;
+
+      var c;
+      console.log(c); //undefind
+      c = 30;
+
+      //
+
+      console.log(d); //undefined
+      var d = 2000; //intialization not work in hoisting
+
+      x = 90;
+      console.log(x);
+      var x;
+
+      //function scop hoisting
+      var f = 50;
+      console.log("hoisted", f);
+      function hoisted() {
+        // var f;  hoisted behavior declaration move top of function
+        console.log("hoisted", f); //ans : undefied
+         var f = 30; //declaration cannot use here
+
+         console.log("hoisted", f) //ans: 30
+      }
+      hoisted();
+    </script>
+  </body>
+</html>

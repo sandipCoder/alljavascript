@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Call apply Bind Methods</h1>
+    </div>
+
+    <script>
+      // Both call and apply invoke a function. 
+      // Their only difference is that call accepts arguments in a comma-separated fashion while 
+      //  apply requires arguments to be passed   as an array or an array-like object.
+
+      // Bind returns a function copy.
+
+      let person = {
+        name: "Sandip",
+        age: 32,
+        degignation: "Swoftware Eng",
+      };
+
+      getInfo = function (sal, city, state) {
+        console.log(this.name + " " + sal + " " + city + " " + state);
+      };
+
+      getInfo.call(person, 80000, "delhi", "Punjab");
+      //fun.call(obj, val1,val2,val3)
+
+      let person2 = {
+        name: "Rohan",
+        age: 35,
+        degignation: "HR Manager",
+      };
+
+      //  getInfo.call(person2, 25000, "Pune", "MH");
+      getInfo.apply(person2, [25000, "Nagpur", "MH"]);
+      //fun.apply(obj, [val1,val2,val3])
+
+      let person3 = {
+        name: "Rajesh",
+        age: 35,
+        degignation: "Armay",
+      };
+
+      //  getInfo.call(person2, 25000, "Pune", "MH");
+      let dataBind = getInfo.bind(person3, 50000, "pune", "MH");
+      dataBind();
+      //fun.bind(obj, val1,val2,val3)
+
+
+
+      //another one
+      let obj = {
+        num: 2,
+      };
+
+      const dataFunc = function (a,b,c) {
+        console.log(this.num + a + b + c);
+      };
+     // dataFunc.call(obj, 5,3,6);
+    // let arr = [5,6,9]
+    // dataFunc.apply(obj,arr)
+
+    let bindD = dataFunc.bind(obj)
+     bindD(4,6,8)
+
+
+
+
+    //  let dataobj ={
+    //    name:"Rames"
+    //  }
+
+    //  dataofFun = function(lname){
+    //    console.log(this.name + " " +lname)
+    //  }
+
+    //  dataofFun.call(dataobj,"choraghe")
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Object Destructuring</h1>
+    </div>
+
+    <script>
+        //object destructuring : object destructuring can extract multiple properties in one statement, can access properties from nested objects, and can set a default value if the property doesn't exist.
+        let obj = {
+            name:"Rina",
+            age:20,
+            std : "12th",
+            hobbies:['cricket','football',"tennies"]
+        }
+
+        let{name,age,std,hobbies,gender="male"}=obj
+
+        console.log(name,std, age,...hobbies,gender)
+
+    </script>
+</body>
+</html>

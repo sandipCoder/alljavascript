@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Shallow And deep copy</h1>
+    </div>
+    <script>
+      //shallow copy: coping one top level elements
+      //deep copy : coping nested elements
+
+      //reference array
+
+      //array
+
+      let arr = ["ram", "shyam", "gita", "sita"];
+      let newarry = arr;
+
+      newarry[3] = "Rohan";
+      console.log(arr, newarry);
+
+      //object
+      let car = {
+        name: "bmw",
+        model: "2015",
+        price: "55lack",
+      };
+
+      let newcar = car;
+      newcar.price = "1cr";
+
+      console.log(newcar, car);
+
+      //Array shallow copy
+
+      //1) array.concat
+      //2) array.from
+      //3) array.slice
+      //4) spread oprator
+      //5) map,filter,reduce
+
+      //1) array.concat
+      let firstArr = [1, 2, 3];
+      let secondArr = [4, 5];
+
+      let fortharr = firstArr;
+      fortharr[2] = 10;
+
+      let thirdArr = secondArr.concat(firstArr);
+      thirdArr[1] = 9;
+
+      console.log(firstArr, secondArr, thirdArr, fortharr);
+
+      //2) array.from
+
+      let formArr = [5, 6, 9, 8, 3, { a: 6 }];
+      let newformarr = Array.from(formArr);
+      console.log(formArr, newformarr);
+
+      newformarr[5] = "six";
+
+      console.log(formArr, newformarr);
+
+      //3)array.slice
+
+      let sliceArr = ["a", "b", "c"];
+
+      let newSlice = sliceArr.slice(0);
+      console.log(sliceArr, newSlice);
+
+      newSlice[1] = "Dass";
+
+      console.log(sliceArr, newSlice);
+
+      //4)spread oprator
+
+      let spredArr = [8, 9, 10];
+      let newspreadArr = [...spredArr];
+      console.log(spredArr, newspreadArr);
+
+      newspreadArr[3] = 11;
+      console.log(spredArr, newspreadArr);
+
+      //5)map,filter,reduce
+
+      let mapArr = [5, 6, 3];
+
+      let newarr = mapArr.map((ele) => ele);
+      console.log(mapArr, newarr);
+
+      newarr[3] = 4;
+      console.log(mapArr, newarr);
+
+      //Array Deep copy
+      let deepcopyArr = ["sunday", "monday", "Tuesday"];
+      let newdeeparryclone = JSON.parse(JSON.stringify(deepcopyArr));
+      console.log(deepcopyArr, newdeeparryclone);
+      newdeeparryclone[3] = "Wedsnday";
+      console.log(deepcopyArr, newdeeparryclone);
+
+      ////object shallow Copy
+      //1)Object.assign({},obj1)
+      //2)spread oprator {...obj1}
+
+      let obj1 = {
+        name: "Sandip",
+        lname: "choraghe",
+        age: 32,
+        hobbies: ["cricket", "football", "swimming", "cycling"],
+      };
+
+      let newobj2 = obj1;
+      newobj2.gender = "male";
+      console.log(obj1, newobj2);
+
+      //1)Object.assign({},obj1)
+
+      let objshallo = Object.assign({}, obj1);
+      objshallo.name = "Ram";
+      console.log(obj1, objshallo);
+
+      //2)spread oprator {...obj1}
+      //not change in nested 
+      let obj2 = {
+        name: "Sandip",
+        lname: "choraghe",
+        age: 32,
+        hobbies: ["cricket", "football", "swimming", "cycling"],
+      };
+      let spredObj = { ...obj2 };
+      spredObj.lname = "Despande";
+
+      spredObj.hobbies[0] = "Badminton";
+
+      console.log(obj2, spredObj);
+
+
+      ///Deep copy
+      let obj4 = JSON.parse(JSON.stringify(obj2))
+      obj4.hobbies[4]="Dancing"
+      obj4.name ="Saksham",
+      obj4.lname="maratha"
+
+      console.log(obj2,obj4)
+
+    </script>
+  </body>
+</html>
